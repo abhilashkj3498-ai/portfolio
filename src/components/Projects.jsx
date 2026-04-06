@@ -45,6 +45,12 @@ const Projects = () => {
       tech:        ['Premiere Pro', 'Video Production', 'Colour Grading'],
       slug:        'video-editing-works',
     },
+    {
+      title:       'Stationary Print Design',
+      description: 'A curated collection of stationery print designs including letterheads, envelopes, notepads, and branded office essentials crafted with precision and aesthetic appeal.',
+      tech:        ['Print Design', 'Branding', 'Layout'],
+      slug:        'stationary-print-design',
+    },
   ];
 
   return (

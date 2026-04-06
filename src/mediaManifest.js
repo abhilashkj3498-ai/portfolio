@@ -39,4 +39,9 @@ export const CATEGORIES = [
     slug:   'video-editing-works',
     folder: 'video-editing-works',
   },
+  {
+    name:   'Stationary Print Design',
+    slug:   'stationary-print-design',
+    folder: 'stationary-print-design',
+  },
 ];
