@@ -27,9 +27,9 @@ const Navbar = () => {
         <ul className="nav-links">
           <li><a href="#home"     onClick={(e) => scrollTo(e, 'home')}>Home</a></li>
           <li><a href="#about"    onClick={(e) => scrollTo(e, 'about')}>About</a></li>
+          <li><a href="#projects" onClick={(e) => scrollTo(e, 'projects')}>Work</a></li>
           <li><a href="#skills"   onClick={(e) => scrollTo(e, 'skills')}>Skills</a></li>
           <li><a href="#resume"   onClick={(e) => scrollTo(e, 'resume')}>Resume</a></li>
-          <li><a href="#projects" onClick={(e) => scrollTo(e, 'projects')}>Projects</a></li>
           <li><a href="#contact"  onClick={(e) => scrollTo(e, 'contact')}>Contact</a></li>
         </ul>
 
@@ -54,9 +54,9 @@ const Navbar = () => {
           <ul>
             <li><a href="#home"     onClick={(e) => handleNav(e, 'home')}>Home</a></li>
             <li><a href="#about"    onClick={(e) => handleNav(e, 'about')}>About</a></li>
+            <li><a href="#projects" onClick={(e) => handleNav(e, 'projects')}>Work</a></li>
             <li><a href="#skills"   onClick={(e) => handleNav(e, 'skills')}>Skills</a></li>
             <li><a href="#resume"   onClick={(e) => handleNav(e, 'resume')}>Resume</a></li>
-            <li><a href="#projects" onClick={(e) => handleNav(e, 'projects')}>Projects</a></li>
             <li><a href="#contact"  onClick={(e) => handleNav(e, 'contact')}>Contact</a></li>
           </ul>
           <a

@@ -17,10 +17,10 @@ const HomePage = () => (
     <main>
       <Hero />
       <About />
+      <Projects />
       <SoftwareSkills />
       <KeySkills />
       <Resume />
-      <Projects />
       <Contact />
     </main>
   </div>
