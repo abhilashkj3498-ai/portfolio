@@ -67,6 +67,47 @@
   letter-spacing: -3px;
 }
 
+.logo-dot {
+  color: var(--accent);
+  display: inline-block;
+  transform-origin: bottom center;
+  opacity: 0;
+  animation: logo-dot-drop 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: 0.6s;
+  margin-left: 6px;
+  letter-spacing: normal;
+}
+
+@keyframes logo-dot-drop {
+  0% {
+    opacity: 0;
+    transform: translateY(-250px) scale(0.6, 1.8);
+    filter: blur(4px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0) scale(1, 1);
+    filter: blur(0);
+    text-shadow: 0 0 0px transparent;
+  }
+  65% {
+    transform: translateY(-20px) scale(0.8, 1.2); /* bounce up */
+  }
+  78% {
+    transform: translateY(0) scale(1.2, 0.8); /* squash on impact */
+    text-shadow: 0 0 15px var(--accent-light);
+  }
+  90% {
+    transform: translateY(-4px) scale(0.95, 1.05); /* minor bounce */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1, 1);
+    filter: blur(0);
+    text-shadow: 0 0 8px rgba(201, 121, 62, 0.5);
+  }
+}
+
 /* ── Role ───────────────────────────────────────────────────────────────── */
 .role {
   font-size: clamp(1rem, 2.5vw, 1.35rem);

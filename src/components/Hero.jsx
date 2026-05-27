@@ -18,7 +18,7 @@ const Hero = () => {
           Available for Projects
         </p>
 
-        <h1 className="name">Abhilash</h1>
+        <h1 className="name">Abhilash<span className="logo-dot">.</span></h1>
 
         <h2 className="role">
           Videographer<span className="role-sep"> · </span>

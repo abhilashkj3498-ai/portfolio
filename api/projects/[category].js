@@ -40,7 +40,13 @@ export default async function handler(req, res) {
   const { category } = req.query;
   if (!category) return res.status(400).json({ error: 'Missing category parameter' });
 
-  const folder     = `portfolio/images/${category}`;
+  const mapping = {
+    'social-media-promotional-videos': 'VEEDU/Social_Media_Promotional_Videos',
+    'photography-projects':            'VEEDU/Photography_Projects',
+    'video-editing-works':             'VEEDU/Video_Editing_Works',
+  };
+
+  const folder     = mapping[category] || `VEEDU/${category}`;
   const cloudName  = process.env.CLOUDINARY_CLOUD_NAME;
 
   try {

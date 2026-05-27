@@ -43,14 +43,18 @@
   position: sticky;
   top: 0;
   z-index: 100;
+  background: rgba(253, 244, 220, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
   border-bottom: 1px solid var(--glass-border);
   gap: 16px;
+  box-shadow: 0 4px 20px rgba(120, 80, 30, 0.05);
 }
 
 .cat-title {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--text-primary);
   text-align: center;
   flex: 1;
 }
@@ -103,22 +107,28 @@
 .media-card {
   position: relative;
   aspect-ratio: 4/3;
-  border-radius: 12px;
+  border-radius: 20px;
   overflow: hidden;
   background: var(--glass-bg);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
   border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
   cursor: pointer;
   opacity: 0;
   transform: translateY(12px);
-  transition: opacity 0.4s ease, transform 0.4s ease, box-shadow 0.3s;
+  transition: opacity 0.4s ease, transform 0.4s ease, box-shadow 0.3s, border-color 0.3s;
 }
 .media-card--loaded {
   opacity: 1;
   transform: translateY(0);
 }
 .media-card:hover {
-  box-shadow: 0 8px 40px rgba(0, 240, 255, 0.12);
-  border-color: rgba(0, 240, 255, 0.25);
+  transform: translateY(-4px);
+  box-shadow: 
+    0 16px 40px rgba(120, 80, 30, 0.1),
+    inset 0 1px 2px rgba(255, 255, 255, 0.5);
+  border-color: rgba(255, 255, 255, 0.5);
 }
 
 .media-thumb {
@@ -177,6 +187,11 @@
   align-items: center;
   justify-content: center;
   background: rgba(0,0,0,0.35);
+  transition: opacity 0.3s ease;
+}
+.media-card:hover .media-play-overlay {
+  opacity: 0;
+  pointer-events: none;
 }
 .play-icon {
   font-size: 2.5rem;
@@ -195,7 +210,7 @@
   transition: background 0.3s;
 }
 .media-card:hover .media-hover-overlay {
-  background: rgba(0, 240, 255, 0.08);
+  background: rgba(30, 18, 8, 0.3);
 }
 .media-hover-icon {
   font-size: 2rem;
@@ -220,7 +235,7 @@
   color: var(--text-secondary);
 }
 .cat-empty-icon { font-size: 4rem; margin-bottom: 20px; }
-.cat-empty h3 { font-size: 1.5rem; color: #fff; margin-bottom: 10px; }
+.cat-empty h3 { font-size: 1.5rem; color: var(--text-primary); margin-bottom: 10px; }
 .cat-empty code {
   background: var(--glass-bg);
   padding: 2px 8px;
@@ -236,7 +251,7 @@
   align-items: center;
   justify-content: center;
   gap: 20px;
-  color: #fff;
+  color: var(--text-primary);
   text-align: center;
 }
 
