@@ -1,17 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
 :root {
-  --bg-color: #0A0A0A;
-  --text-primary: #FFFFFF;
-  --text-secondary: #A0A0A0;
-  --accent-cyan: #00F0FF;
-  --accent-purple: #b026ff;
-  --glass-bg: rgba(255, 255, 255, 0.03);
-  --glass-border: rgba(255, 255, 255, 0.08);
-  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-  --font-main: 'Inter', sans-serif;
+  --bg-color:        #0A0A0A;
+  --text-primary:    #FFFFFF;
+  --text-secondary:  #A0A0A0;
+  --accent-cyan:     #00F0FF;
+  --accent-purple:   #b026ff;
+  --glass-bg:        rgba(255, 255, 255, 0.03);
+  --glass-border:    rgba(255, 255, 255, 0.08);
+  --glass-shadow:    0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  --font-main:       'Inter', sans-serif;
   --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-* {
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -19,6 +21,7 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -37,16 +40,14 @@ a {
   transition: var(--transition-smooth);
 }
 
-ul {
-  list-style: none;
-}
+ul { list-style: none; }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   line-height: 1.2;
 }
 
-/* Global Utility Classes */
+/* ── Global Utility: Glassmorphism card ─────────────────────────────────── */
 .glass {
   background: var(--glass-bg);
   backdrop-filter: blur(12px);
@@ -55,10 +56,30 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: var(--glass-shadow);
 }
 
-/* Navbar needs a much darker background so page content doesn't bleed through */
+/* Navbar variant — darker so content doesn't bleed through */
 .navbar.glass {
-  background: rgba(10, 10, 10, 0.92);
+  background: rgba(10, 10, 10, 0.7);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ── Global section title style ─────────────────────────────────────────── */
+.section-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.section-title h2 {
+  font-size: 2rem;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.section-title .line {
+  height: 1px;
+  background: linear-gradient(to right, rgba(255,255,255,0.1), transparent);
+  flex: 1;
 }
