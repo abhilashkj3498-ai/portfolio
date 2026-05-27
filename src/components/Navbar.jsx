@@ -20,7 +20,7 @@ const Navbar = () => {
       <nav className="navbar glass">
         {/* Logo */}
         <div className="logo">
-          <Link to="/">Rahul<span>.</span></Link>
+          <Link to="/">Abhilash<span>.</span></Link>
         </div>
 
         {/* Desktop nav links */}

@@ -18,7 +18,7 @@ const Resume = () => {
     {
       role: 'Production Manager',
       company: 'Whoots Productions',
-      period: 'Whoots Productions', // Wait, the resume says: "Production Manager – Whoots Productions"
+      period: '',
       points: [
         'Coordinated production activities and managed on-set operations.',
         'Assisted in planning shoots, equipment setup, and resource management.',

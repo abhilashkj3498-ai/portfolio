@@ -5,11 +5,12 @@ const Hero = () => {
     <section id="home" className="hero-section">
       <div className="hero-content">
         <h4 className="greeting">Hi, I'm</h4>
-        <h1 className="name">Rahul Pr</h1>
+        <h1 className="name">Abhilash</h1>
         <h2 className="role">Videographer, Photographer & Video Editor</h2>
         <p className="description">
-          Creative and detail-oriented digital media professional with 1.5 years of professional
-          experience in digital media production, cinematic shooting, color grading, and visual storytelling.
+          Creative and detail-oriented digital media professional with 1.5 years of experience
+          in cinematic shooting, color grading, visual storytelling, and social media content creation
+          for digital marketing campaigns and brands.
         </p>
         <div className="hero-cta">
             <button

@@ -12,9 +12,9 @@ const About = () => {
       <div className="about-content">
         <div className="about-text glass">
           <p>
-            Hello! I'm Rahul Pr, a detail-oriented Videographer, Photographer, and Video Editor based in Mananthavady, India.
-            With a solid foundation in digital media production and content creation, I focus on capturing high-quality visual content
-            and crafting stories that resonate with audiences.
+            Hello! I'm Abhilash, a Creative and detail-oriented Videographer, Photographer, and Video Editor
+            based in India. With 1.5 years of professional experience in digital media production and content
+            creation, I deliver compelling visual stories for brands and promotional projects.
           </p>
           <p>
             Over the past 1.5 years, I have worked on commercial and promotional video projects, managing production workflows from
@@ -34,7 +34,7 @@ const About = () => {
 
         <div className="about-image-container">
           <div className="about-image glass" style={{ overflow: 'hidden', padding: 0 }}>
-            <img src={profilePic} alt="Rahul Pr" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '16px' }} />
+            <img src={profilePic} alt="Abhilash" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '16px' }} />
           </div>
         </div>
       </div>
