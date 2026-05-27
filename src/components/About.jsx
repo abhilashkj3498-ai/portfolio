@@ -1,5 +1,5 @@
 import './About.css';
-import profilePic from '../../media/rahulpr.jpeg';
+import profilePic from '../../media/abhilash.jpeg';
 
 const About = () => {
   return (
