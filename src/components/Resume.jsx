@@ -3,52 +3,49 @@ import './Resume.css';
 
 const Resume = () => {
   const timelineRef = useRef(null);
-  const indicatorRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
       const timeline = timelineRef.current;
-      const indicator = indicatorRef.current;
-      if (!timeline || !indicator) return;
+      if (!timeline) return;
 
-      const rect = timeline.getBoundingClientRect();
       const viewportHeight = window.innerHeight;
-
-      // Locate first and last items robustly using querySelectorAll
-      const items = timeline.querySelectorAll('.timeline-item');
-      if (items.length === 0) return;
-      const firstItem = items[0];
-      const lastItem = items[items.length - 1];
-
-      // Define standard trigger line in the middle of viewport
       const triggerPoint = viewportHeight * 0.5;
 
-      // Calculate progress based on full timeline container height crossing the triggerPoint
-      let progress = 0;
-      if (rect.height > 0) {
-        progress = (triggerPoint - rect.top) / rect.height;
-      }
+      // Locate and process each card's indicator individually
+      const items = timeline.querySelectorAll('.timeline-item');
+      items.forEach((item) => {
+        const indicator = item.querySelector('.timeline-indicator');
+        if (!indicator) return;
 
-      // Smoothly interpolate progress to 1 as the user reaches the bottom of the scrollable page
-      const scrollY = window.scrollY || window.pageYOffset;
-      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-      if (maxScroll > 0) {
-        const bottomThreshold = 150; // trigger interpolation in the last 150px of page scroll
-        if (scrollY > maxScroll - bottomThreshold) {
-          const pageScrollProgress = (scrollY - (maxScroll - bottomThreshold)) / bottomThreshold;
-          progress = progress + (1 - progress) * Math.max(0, Math.min(1, pageScrollProgress));
+        const rect = item.getBoundingClientRect();
+
+        // Calculate progress for this card:
+        // Starts when top of card is at triggerPoint, ends when bottom is at triggerPoint
+        let progress = 0;
+        if (rect.height > 0) {
+          progress = (triggerPoint - rect.top) / rect.height;
         }
-      }
-      progress = Math.max(0, Math.min(1, progress));
 
-      // Map progress exactly to timeline offsets of checkpoints
-      const startY = firstItem.offsetTop + 32;
-      const endY = lastItem.offsetTop + 32;
+        // Smoothly interpolate progress to 1 near absolute page bottom
+        const scrollY = window.scrollY || window.pageYOffset;
+        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        if (maxScroll > 0) {
+          const bottomThreshold = 150;
+          if (scrollY > maxScroll - bottomThreshold) {
+            const pageScrollProgress = (scrollY - (maxScroll - bottomThreshold)) / bottomThreshold;
+            progress = progress + (1 - progress) * Math.max(0, Math.min(1, pageScrollProgress));
+          }
+        }
+        progress = Math.max(0, Math.min(1, progress));
 
-      const targetY = startY + progress * (endY - startY);
+        // Travel range: starts at top: 32px (checkpoint dot) and goes to the bottom of the card
+        const startY = 32;
+        const endY = rect.height;
+        const targetY = startY + progress * (endY - startY);
 
-      // Apply smooth translate transform
-      indicator.style.transform = `translateY(${targetY}px)`;
+        indicator.style.transform = `translateY(${targetY}px)`;
+      });
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -122,16 +119,15 @@ const Resume = () => {
         <div className="resume-col">
           <h3 className="sub-header">Professional Experience</h3>
           <div className="timeline" ref={timelineRef}>
-            {/* Smooth scrolling active indicator */}
-            <div className="timeline-indicator" ref={indicatorRef}></div>
-
             {experiences.map((exp, index) => (
               <div key={index} className="timeline-item glass">
+                <div className="timeline-line"></div>
+                <div className="timeline-indicator"></div>
                 <div className="timeline-dot"></div>
                 <div className="timeline-header">
                   <h4 className="role-title">{exp.role}</h4>
                   <span className="company-name">{exp.company}</span>
-                  {exp.period !== exp.company && <span className="period-badge">{exp.period}</span>}
+                  {exp.period && exp.period !== exp.company && <span className="period-badge">{exp.period}</span>}
                 </div>
                 <ul className="timeline-details">
                   {exp.points.map((pt, i) => (

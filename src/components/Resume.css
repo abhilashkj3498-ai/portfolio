@@ -38,7 +38,6 @@
   gap: 24px;
   position: relative;
   padding-left: 20px;
-  border-left: 2px solid var(--border-strong);
 }
 
 .timeline-item {
@@ -64,6 +63,16 @@
   border-color: rgba(255, 255, 255, 0.5);
 }
 
+.timeline-line {
+  position: absolute;
+  left: -22px;
+  top: 32px;
+  bottom: 0;
+  width: 2px;
+  background: var(--border-strong);
+  z-index: 1;
+}
+
 .timeline-dot {
   position: absolute;
   left: -27px;
@@ -78,7 +87,7 @@
 
 .timeline-indicator {
   position: absolute;
-  left: -6.5px;
+  left: -27px;
   top: 0;
   width: 11px;
   height: 11px;
