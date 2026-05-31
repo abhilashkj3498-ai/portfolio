@@ -11,26 +11,26 @@ const Resume = () => {
       const indicator = indicatorRef.current;
       if (!timeline || !indicator) return;
 
+      const rect = timeline.getBoundingClientRect();
       const viewportHeight = window.innerHeight;
+
+      // Define standard top scroll offset (e.g. 100px below top viewport)
+      const topOffset = 100;
+
+      // Calculate container travel range between entering viewport (topOffset) and exiting viewport (bottom)
+      const range = rect.height - (viewportHeight - topOffset);
+      let progress = 0;
+      if (range > 0) {
+        progress = (topOffset - rect.top) / range;
+      } else {
+        progress = rect.top < topOffset ? 1 : 0;
+      }
+      progress = Math.max(0, Math.min(1, progress));
 
       // Locate first and last items to measure scroll progress
       const firstItem = timeline.querySelector('.timeline-item');
       const lastItem = timeline.querySelector('.timeline-item:last-child');
       if (!firstItem || !lastItem) return;
-
-      const firstRect = firstItem.getBoundingClientRect();
-      const lastRect = lastItem.getBoundingClientRect();
-
-      // Compute centers of first and last card relative to viewport
-      const firstCenter = firstRect.top + firstRect.height / 2;
-      const lastCenter = lastRect.top + lastRect.height / 2;
-
-      // Trigger line in the center of viewport
-      const triggerPoint = viewportHeight * 0.5;
-
-      // Progress goes from 0 (first card center at screen center) to 1 (last card center at screen center)
-      let progress = (triggerPoint - firstCenter) / (lastCenter - firstCenter);
-      progress = Math.max(0, Math.min(1, progress));
 
       // Map progress exactly to timeline offsets of checkpoints
       const startY = firstItem.offsetTop + 32;
