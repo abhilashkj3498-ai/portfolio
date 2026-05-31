@@ -34,7 +34,7 @@ const About = () => {
 
         <div className="about-image-container">
           <div className="about-image glass" style={{ overflow: 'hidden', padding: 0 }}>
-            <img src={profilePic} alt="Abhilash" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '16px' }} />
+            <img src={profilePic} alt="Abhilash" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           </div>
         </div>
       </div>
